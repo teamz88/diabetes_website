@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Data Website</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f3f3;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .userDataContainer {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .userDataSection {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 48%; /* Adjust the width as needed */
+        }
+
+        .userDataSection + .userDataSection {
+            margin-left: 20px; /* Space between sections */
+        }
+
+        .userDataSection h2 {
+            margin-top: 0; /* Remove top margin for consistency */
+        }
+
+        .userDataSection.withBorder {
+            position: relative;
+        }
+
+        form {
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        label,
+        input,
+        button {
+            display: block;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        #outcomeSection {
+            display: block;
+            background-color: #fff; 
+            border-radius: 10px; 
+            padding: 20px; 
+            margin-top: 20px; 
+        }
+
+        @media only screen and (max-width: 600px) {
+            .userDataSection {
+                width: 100%; /* Full width on smaller screens */
+                margin: 10px 0; /* Adjust margin for spacing */
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Diabetes Predection System</h1>
+    </header>
+    <main>
+        <div class="userDataContainer">
+            <section class="userDataSection">
+                <h2>Diabetes Self Diagnostic Tool</h2>
+                <p>This prediction model utilizes open-source data from Kaggle with an accuracy of 82.5% due to the limited data. Provided data will not be stored. Based on the key metric defenition, please provide the following information to get your prediction:</p>
+                <ul>
+                <li>
+                    <p><strong>Pregnancies:</strong></p>
+                    <span>Number of times pregnant</span>
+                </li>
+                <li>
+                    <p><strong>Glucose:</strong></p>
+                    <span>Plasma glucose concentration 2 hours after an oral glucose tolerance test</span>
+                </li>
+                <li>
+                    <p><strong>Blood Pressure:</strong></p>
+                    <span>Diastolic blood pressure (mm Hg)</span>
+                </li>
+                <li>
+                    <p><strong>Skin Thickness:</strong></p>
+                    <span>Triceps skin fold thickness (mm)</span>
+                </li>
+                <li>
+                    <p><strong>Insulin:</strong></p>
+                    <span>2-Hour serum insulin level (mu U/ml)</span>
+                </li>
+                <li>
+                    <p><strong>BMI:</strong></p>
+                    <span>Body mass index (weight in kg / (height in m)^2)</span>
+                </li>
+                <li>
+                    <p><strong>Diabetes Pedigree Function:</strong></p>
+                    <span>A function which scores likelihood of diabetes based on family history</span>
+                </li>
+                <li>
+                    <p><strong>Age:</strong></p>
+                    <span>Age of the individual (years)</span>
+                </li>
+                </ul>
+                <strong>Click <i><a href="https://omadligroup.github.io/diabetes_predict/">here</a></i> to see the source of the Diabetes System</strong>
+            </section>
+            <div class="borderLine"></div>
+            <section class="userDataSection">
+                <h2>Provide Your Data</h2>
+                <form action="result" method="get" id="userDataForm">
+                    <!-- Your form fields here -->
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="n1" required>
+                    <label for="pregnancies">Pregnancies:</label>
+                    <input type="text" id="pregnancies" name="n2" required>
+                    <label for="bloodPressure">Blood Pressure:</label>
+                    <input type="text" id="glucose" name="n3" required>
+                    <label for="glucose">Glucose:</label>
+                    <input type="text" id="bloodPressure" name="n4" required>
+                    <label for="skinThickness">Skin Thickness:</label>
+                    <input type="text" id="skinThickness" name="n5" required>
+                    <label for="insulin">Insulin:</label>
+                    <input type="text" id="insulin" name="n6" required>
+                    <label for="bmi">BMI:</label>
+                    <input type="text" id="bmi" name="n7" required>
+                    <label for="diabetesPedigree">Diabetes Pedigree Function:</label>
+                    <input type="text" id="diabetesPedigree" name="n8" required>
+                    <label for="age">Age:</label>
+                    <input type="text" id="age" name="n9" required>                
+                    <button type="submit">Submit</button>
+                    <input type="checkbox" id="submit" style="display: none;">
+                </form>
+            </section>
+        </div>
+        <section id="outcomeSection">
+            <h2>Outcome: <span id="outcome">{{result2}}</span></h2>
+        </section>
+    </main>
+
+</body>
+</html>
